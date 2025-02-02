@@ -52,38 +52,73 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { width: 300px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
-        .error { color: red; }
-        .success { color: green; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        h2 {
+            color: #d81b60;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #b39ddb;
+            color: white;
+        }
+        .btn {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #ad1457;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h2>Reset Password</h2>
-
-    <?php if ($error): ?>
-        <p class="error"><?php echo $error; ?></p>
-    <?php endif; ?>
-
-    <?php if ($success): ?>
-        <p class="success"><?php echo $success; ?></p>
-    <?php endif; ?>
-
-    <form action="" method="POST">
-        <label>Email:</label>
-        <input type="email" name="email" required><br><br>
-
-        <label>New Password:</label>
-        <input type="password" name="new_password" required><br><br>
-
-        <label>Confirm New Password:</label>
-        <input type="password" name="confirm_password" required><br><br>
-
-        <button type="submit" name="reset_password">Reset Password</button>
+    <form action="reset_password.php" method="POST">
+        <div class="input-group">
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+            <input type="password" name="new_password" placeholder="New Password" required>
+        </div>
+        <div class="input-group">
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        </div>
+        <button type="submit" class="btn" name="reset_password">Reset Password</button>
     </form>
 </div>
 
 </body>
 </html>
+
